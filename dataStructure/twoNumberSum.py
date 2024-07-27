@@ -18,9 +18,23 @@ def twoNumberSum(array, targetSum):
     return []
     
 
+# Use tow pointers and sort function for O(nlog(n)) / O(1) space
 
-
-
+def twoNumberSum(array, targetSum):
+    left = 0
+    right = len(array) - 1
+    # while two pointers don't overlap
+    while left < right:
+        currentSum = array[left]+ array[right]
+        if currentSum == targetSum:
+            return [array[left], array[right]]
+        elif currentSum < targetSum:
+            # move the left pointer to the right so we have a greater sum
+            left += 1
+        elif currentSum > targetSum:
+            # move the right pointer to the left so we have a smaller sum
+            right -=1
+    return []
 
 
 
