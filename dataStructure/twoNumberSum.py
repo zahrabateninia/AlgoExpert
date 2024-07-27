@@ -21,6 +21,7 @@ def twoNumberSum(array, targetSum):
 # Use tow pointers and sort function for O(nlog(n)) / O(1) space
 
 def twoNumberSum(array, targetSum):
+    array.sort()
     left = 0
     right = len(array) - 1
     # while two pointers don't overlap
