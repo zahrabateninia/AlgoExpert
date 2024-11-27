@@ -37,7 +37,22 @@ class BST:
                 return True
             return False
 
-    def remove(self, value):
-        # Write your code here.
-        # Do not edit the return statement of this method.
+    def remove(self, value, parentNode = None):
+        currentNode = self
+        while currentNode is not None:
+            if currentNode.value < value:
+                # we always wanna keep track of the parent node
+                parentNode = currentNode
+                currentNode = currentNode.right
+            elif currentNode.value > value:
+                parentNode = currentNode
+                currentNode = currentNode.left
+            else: # when we find the value we wanna remove:
+                # if the node we wanna remove has two left and right children
+                if currentNode.right is not None and currentNode.left is not None:
+                    # we need to find the smallest left-most value in the right subtree and replace it with the node we wanna remove
+                    currentNode.value = currentNode.right.getMinValue()
+                    # remove the smallest value of the right subtree
+                    currentNode.right.remove(currentNode.value, currentNode) # passing currentNode as parent 
+
         return self
