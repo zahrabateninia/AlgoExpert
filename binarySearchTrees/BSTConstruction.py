@@ -27,13 +27,14 @@ class BST:
         return self
 
     def contains(self, value):
-        if self.value == value:
-            return True
-        if (self.value > value and self.left != None):
-            return self.left.contains(value)
-        elif(self.value < value and self.right != None):
-            return self.right.contains(value)
-        else:
+        currentNode = self
+        while currentNode is not None:
+            if currentNode.value < value:
+                currentNode = currentNode.right
+            elif currentNode.value > value:
+                currentNode = currentNode.left
+            else: 
+                return True
             return False
 
     def remove(self, value):
