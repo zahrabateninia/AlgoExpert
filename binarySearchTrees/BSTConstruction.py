@@ -54,5 +54,18 @@ class BST:
                     currentNode.value = currentNode.right.getMinValue()
                     # remove the smallest value of the right subtree
                     currentNode.right.remove(currentNode.value, currentNode) # passing currentNode as parent 
-
+                elif parentNode is None:
+                    # if the node we wanna remove is the root node so it doesn't its parentNode is None
+                    # it has either 1 left/right node or no node at all (we already handled the case with 2 children)
+                    if currentNode.left is not None:
+                        currentNode.value = currentNode.left.value
+                        currentNode.right = currentNode.left.right
+                        currentNode.left = currentNode.left.left
+                    elif currentNode.right is not None:
+                        currentNode.value = currentNode.right.value
+                        currentNode.right = currentNode.right.left
+                        currentNode.left = currentNode.right.right
+                    else: # when there is no parentNode and no children for a node 
+                        # this is a single-node tree; do nothing. if you remove it you delete the BST!
+                        pass
         return self
