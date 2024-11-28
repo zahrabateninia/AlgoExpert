@@ -40,13 +40,13 @@ class BST:
     def remove(self, value, parentNode = None):
         currentNode = self
         while currentNode is not None:
-            if currentNode.value < value:
+            if value < currentNode.value:
                 # we always wanna keep track of the parent node
                 parentNode = currentNode
-                currentNode = currentNode.right
-            elif currentNode.value > value:
-                parentNode = currentNode
                 currentNode = currentNode.left
+            elif value > currentNode.value:
+                parentNode = currentNode
+                currentNode = currentNode.right
             else: # when we find the value we wanna remove:
                 # if the node we wanna remove has two left and right children
                 if currentNode.right is not None and currentNode.left is not None:
