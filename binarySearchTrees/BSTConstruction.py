@@ -68,4 +68,19 @@ class BST:
                     else: # when there is no parentNode and no children for a node 
                         # this is a single-node tree; do nothing. if you remove it you delete the BST!
                         pass
+
+                elif parentNode.left == currentNode: #currentNode is the left child of our parentNode
+                    parentNode.left = (
+                        currentNode.left if currentNode.left is not None else currentNode.right
+                    )
+                elif parentNode.right == currentNode:
+                    parentNode.right = (
+                        currentNode.left if currentNode.left is not None else currentNode.right
+                    )
+                break
+
         return self
+
+
+    def getMinValue(self):
+        pass
