@@ -20,11 +20,14 @@ def getNthFib(n):
 # T: O(n) S: O(n)
 # Memoization helps store previously computed values, making the recursive solution more efficient by avoiding redundant calculations.
 
-def getNthFib2(n, memoize={}):
+def getNthFib2(n, memoize=None):
     # base case
-    if n <= 1:
-        return n  # bcs for n = 0 and n = 1 the nth fib is the same, so 0 and 1 respectively
-    
+    if n == 1:
+        return 0
+    if n <= 3:
+        return 1
+    if memoize is None:
+        memoize = {}
     # check if it's already in memoize
     if n not in memoize:
         memoize[n] = getNthFib2(n - 1, memoize) + getNthFib2(n - 2, memoize)
