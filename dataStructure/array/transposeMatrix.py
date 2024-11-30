@@ -14,9 +14,13 @@
 def transposeMatrix(matrix):
     rowsCount = len(matrix)
     colsCount = len(matrix[0])
-    transpose = [[0]* rowsCount]*colsCount
+    # transpose = [[0]* rowsCount]*colsCount Incorrect, why?
+    # Instead of creating independent copies, Python creates multiple references to the same list in memory.
+    # changing one row changes all of them !!
 
-    #  fill it with actual values of matrix
+    # ensure each row is independent, you need to create a new list for each row
+    transpose = [[0]* rowsCount for _ in range(colsCount)]
+
     for row in range(rowsCount):
         for col in range(colsCount):
             transpose[col][row] = matrix[row][col] 
