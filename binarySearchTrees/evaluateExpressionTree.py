@@ -13,5 +13,23 @@ class BinaryTree:
 
 
 def evaluateExpressionTree(tree):
-    # Write your code here.
-    return -1
+    # base case: we reach a leaf node which here is a positive number
+    if tree.value >= 0:
+        return tree.value
+
+    # when we reach an operator we wanna first get the values of left and right-subtrees
+    # and do whatever the operation is
+
+    leftValue = evaluateExpressionTree(tree.left)
+    rightValue = evaluateExpressionTree(tree.right)
+
+    if tree.value == -1:
+        return leftValue + rightValue
+    if tree.value == -2:
+        return leftValue - rightValue
+    if tree.value == -3:
+        return int(leftValue/rightValue)
+
+    return leftValue * rightValue
+
+    
