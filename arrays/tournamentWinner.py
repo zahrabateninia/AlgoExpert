@@ -12,4 +12,21 @@
 # results[i] denotes the winner of competitions[i], where a 1 in the results means that the home team won and a 0
 #  means that the away team won
 
+HOME_TEAM_WON = 1 # for better readability
+def tournamentWinner(competitions, results):
+    currentBestTeam = ""
+    scores = {currentBestTeam: 0}
 
+    for idx, competition in enumerate(competitions):
+        result = results[idx]
+        homeTeam, awayTeam = competition # decomposition
+
+        winningTeam = homeTeam if result == HOME_TEAM_WON else awayTeam
+
+        updateScores(winningTeam, 3, scores)
+
+    return currentBestTeam
+
+
+def updateScores():
+    pass
