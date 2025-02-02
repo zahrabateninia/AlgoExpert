@@ -10,9 +10,20 @@
 # greedy choice: each time pick up the hardest student to place ( the tallest one)
 
 
-# O(n Logn) T | O(1) S
+# O(n Log(n)) T | O(1) S
 
 def classPhotos(redShirtHeights, blueShirtHeights):
     redShirtHeights.sort(reverse=True)
     blueShirtHeights.sort(reverse=True)
 
+    shirtColorInFirstRow = 'RED' if redShirtHeights < blueShirtHeights else 'Blue'
+    for idx in range(len(redShirtHeights)):
+        redShirtHeight = redShirtHeights[idx]
+        blueShirtHeight = blueShirtHeights[idx]
+    if shirtColorInFirstRow == 'RED':
+        if redShirtHeight >= blueShirtHeight:
+            return False
+    else:
+        if redShirtHeight <= blueShirtHeight:
+            return False
+    return True
