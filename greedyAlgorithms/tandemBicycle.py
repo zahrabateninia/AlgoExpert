@@ -16,6 +16,8 @@ def tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest):
         blueShirtSpeeds.sort(reverse = True)
 
     totalSpeed = 0
-    for redRider in redShirtSpeeds:
-        totalSpeed += 
-    return 0
+    for idx, redRider in enumerate(redShirtSpeeds):
+        speedDictator = max(redRider, blueShirtSpeeds[idx])
+        totalSpeed += speedDictator
+        
+    return totalSpeed
