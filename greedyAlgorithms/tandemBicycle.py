@@ -9,13 +9,12 @@
 
 
 def tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest):
-    if fastest == True:
-        redShirtSpeeds.sort()
-        blueShirtSpeeds.sort(reverse = True)
+    redShirtSpeeds.sort()
+    blueShirtSpeeds.sort()
 
-    else:
-        redShirtSpeeds.sort()
-        blueShirtSpeeds.sort()
+    if fastest: 
+        reverseArrayInPlace(redShirtSpeeds)
+
 
     totalSpeed = 0
     for idx, redRider in enumerate(redShirtSpeeds):
@@ -23,3 +22,11 @@ def tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest):
         totalSpeed += speedDictator
         
     return totalSpeed
+
+def reverseArrayInPlace(arr):
+     start = 0
+     end = len(arr) - 1
+     while start < end:
+         arr[start], arr[end] = arr[end], arr[start]
+         start +=1
+         end -= 1
