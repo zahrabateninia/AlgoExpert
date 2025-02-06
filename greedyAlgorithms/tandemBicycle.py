@@ -5,6 +5,8 @@
 # ex: if there are 4 riders (2 red-shirt riders, 2 blue-shirt riders) who have speeds of 1, 3, 4, 5 and 
 # if they are paired on tandem as [1,4], [5,3] total speed is 9
 
+# O(n Log(n)) T | O(1) S 
+
 
 def tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest):
     if fastest == True:
@@ -13,7 +15,7 @@ def tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest):
 
     else:
         redShirtSpeeds.sort()
-        blueShirtSpeeds.sort(reverse = True)
+        blueShirtSpeeds.sort()
 
     totalSpeed = 0
     for idx, redRider in enumerate(redShirtSpeeds):
