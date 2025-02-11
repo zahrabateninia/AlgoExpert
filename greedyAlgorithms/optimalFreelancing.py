@@ -11,5 +11,7 @@
 
 # O(n Log(n)) T| O(1) S
 def optimalFreelancing(jobs):
-    
+    LENGTH_OF_WEEK = 7
+    profit = 0
+    jobs.sort(key = lambda job: jobs["payment"], reverse=True) 
     return -1
