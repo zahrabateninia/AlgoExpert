@@ -25,6 +25,6 @@ def optimalFreelancing(jobs):
         for time in reversed(range(maxTime)): # it does not affect the time complexity 
             if timeline[time] == False:
                 timeline[time] = True
-                profit += jobs["payment"]
+                profit += job["payment"]
                 break # continue the outer for loop
     return profit
